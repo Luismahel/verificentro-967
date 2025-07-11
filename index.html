@@ -14,9 +14,11 @@
             color: #333;
             line-height: 1.6;
         }
+
         .header-bg {
             background: linear-gradient(to right, #28a745, #1e8838); /* Tonos de verde para el encabezado */
         }
+
         .btn-primary {
             background-color: #28a745; /* Verde primario */
             color: white;
@@ -26,11 +28,13 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-weight: 600;
         }
-        .btn-primary:hover {
-            background-color: #218838; /* Verde más oscuro al pasar el ratón */
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
+
+            .btn-primary:hover {
+                background-color: #218838; /* Verde más oscuro al pasar el ratón */
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
         .whatsapp-btn {
             background-color: #25d366; /* Verde WhatsApp */
             color: white;
@@ -45,11 +49,13 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-weight: 700;
         }
-        .whatsapp-btn:hover {
-            background-color: #1da851;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
+
+            .whatsapp-btn:hover {
+                background-color: #1da851;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
         .card {
             background-color: white;
             border-radius: 1.5rem; /* Esquinas más redondeadas */
@@ -57,10 +63,12 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             border: 1px solid #e2e8f0; /* Borde suave */
         }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
-        }
+
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            }
+
         .section-heading {
             font-size: 2.5rem; /* Título más grande */
             font-weight: 800;
@@ -70,22 +78,25 @@
             position: relative;
             padding-bottom: 0.5rem;
         }
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #28a745; /* Línea verde debajo del título */
-            border-radius: 2px;
-        }
+
+            .section-heading::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background-color: #28a745; /* Línea verde debajo del título */
+                border-radius: 2px;
+            }
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInAnimation 0.8s ease-out forwards;
         }
+
         @keyframes fadeInAnimation {
             to {
                 opacity: 1;
@@ -96,18 +107,22 @@
         .logo-animate {
             animation: bounceIn 1s ease-out forwards;
         }
+
         @keyframes bounceIn {
             0% {
                 opacity: 0;
                 transform: scale(0.3);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1.05);
             }
+
             70% {
                 transform: scale(0.9);
             }
+
             100% {
                 transform: scale(1);
             }
@@ -118,6 +133,7 @@
             transform: translateX(-20px);
             animation: slideInLeft 0.6s ease-out forwards;
         }
+
         @keyframes slideInLeft {
             to {
                 opacity: 1;
@@ -125,16 +141,45 @@
             }
         }
         /* Retraso para las animaciones de lista */
-        .list-item-animate:nth-child(1) { animation-delay: 0.1s; }
-        .list-item-animate:nth-child(2) { animation-delay: 0.2s; }
-        .list-item-animate:nth-child(3) { animation-delay: 0.3s; }
-        .list-item-animate:nth-child(4) { animation-delay: 0.4s; }
-        .list-item-animate:nth-child(5) { animation-delay: 0.5s; }
-        .list-item-animate:nth-child(6) { animation-delay: 0.6s; }
-        .list-item-animate:nth-child(7) { animation-delay: 0.7s; }
-        .list-item-animate:nth-child(8) { animation-delay: 0.8s; }
-        .list-item-animate:nth-child(9) { animation-delay: 0.9s; }
-        .list-item-animate:nth-child(10) { animation-delay: 1.0s; }
+        .list-item-animate:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .list-item-animate:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .list-item-animate:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .list-item-animate:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .list-item-animate:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .list-item-animate:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .list-item-animate:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .list-item-animate:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .list-item-animate:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .list-item-animate:nth-child(10) {
+            animation-delay: 1.0s;
+        }
 
         /* Estilos para el icono de WhatsApp (SVG) */
         .whatsapp-icon {
@@ -142,6 +187,7 @@
             height: 28px;
             fill: currentColor; /* Asegura que el SVG tome el color del texto del botón */
         }
+
         .hologram-card {
             display: flex;
             flex-direction: column;
@@ -154,9 +200,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease-in-out;
         }
-        .hologram-card:hover {
-            transform: translateY(-3px);
-        }
+
+            .hologram-card:hover {
+                transform: translateY(-3px);
+            }
+
         .hologram-icon {
             font-size: 3rem; /* Emojis más grandes */
             margin-bottom: 0.75rem;
@@ -170,14 +218,15 @@
             margin-top: 2rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+
+            .map-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
         /* Estilos para la pantalla de inicio */
         #splash-screen {
             position: fixed;
@@ -193,6 +242,7 @@
             overflow: hidden;
             flex-direction: column; /* Para centrar el texto verticalmente */
         }
+
         #splash-message {
             color: white;
             font-size: 2.5rem; /* Ajustado para mejor visualización */
@@ -202,11 +252,13 @@
             opacity: 0;
             padding: 0 1rem; /* Pequeño padding para evitar que el texto toque los bordes */
         }
+
         @keyframes slideDown {
             0% {
                 transform: translateY(-100px);
                 opacity: 0;
             }
+
             100% {
                 transform: translateY(0);
                 opacity: 1;
@@ -223,12 +275,25 @@
             border: 1px solid rgba(0,0,0,0.1); /* Borde sutil para que se vea en fondos claros */
         }
         /* Colores de los engomados */
-        .bg-engomado-amarillo { background-color: #FFD700; /* Oro */ }
-        .bg-engomado-rosa { background-color: #FF69B4; /* Rosa fuerte */ }
-        .bg-engomado-rojo { background-color: #FF4500; /* Rojo anaranjado */ }
-        .bg-engomado-verde { background-color: #32CD32; /* Verde lima */ }
-        .bg-engomado-azul { background-color: #4169E1; /* Azul real */ }
+        .bg-engomado-amarillo {
+            background-color: #FFD700; /* Oro */
+        }
 
+        .bg-engomado-rosa {
+            background-color: #FF69B4; /* Rosa fuerte */
+        }
+
+        .bg-engomado-rojo {
+            background-color: #FF4500; /* Rojo anaranjado */
+        }
+
+        .bg-engomado-verde {
+            background-color: #32CD32; /* Verde lima */
+        }
+
+        .bg-engomado-azul {
+            background-color: #4169E1; /* Azul real */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -245,7 +310,8 @@
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-4 mb-4 md:mb-0">
                     <!-- Logo del Verificentro -->
-                    <img src="https://placehold.co/150x50/000000/FFFFFF?text=Verificacion" alt="Logo Verificación" class="h-12 logo-animate">
+                    <!-- Usa un placeholder. Reemplaza con la URL directa de tu logo una vez subido. -->
+                    <img src="https://placehold.co/150x50/000000/FFFFFF?text=Tu+Logo" alt="Logo Verificación" class="h-12 logo-animate">
                     <span class="text-3xl font-bold">Verificentro 967</span>
                 </div>
                 <nav>
@@ -264,7 +330,9 @@
         </header>
 
         <!-- Hero Section -->
-        <section id="inicio" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('fondo.jpg');">
+        <section id="inicio" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
+                 style="background-image: url('https://placehold.co/1920x1080/28a745/ffffff?text=Fondo+Verificentro');">
+            <!-- NOTA: Reemplaza la URL de arriba con el enlace directo de tu imagen de fondo una vez subida. -->
             <div class="absolute inset-0 bg-black opacity-60"></div>
             <div class="relative z-10 text-white p-8 max-w-4xl mx-auto fade-in">
                 <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
@@ -396,8 +464,8 @@
                     Conoce las restricciones de circulación para vehículos en el Estado de México.
                 </p>
                 <div class="max-w-4xl mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
-                    <!-- Usando la ruta relativa para la imagen local -->
-                    <img src="calendario.jpg" alt="Programa Hoy No Circula Estado de México" class="w-full h-auto rounded-lg shadow-md mb-6">
+                    <!-- Usando un placeholder. Reemplaza con la URL directa de tu imagen de calendario una vez subida. -->
+                    <img src="https://placehold.co/800x600/32CD32/ffffff?text=Calendario+Hoy+No+Circula" alt="Programa Hoy No Circula Estado de México" class="w-full h-auto rounded-lg shadow-md mb-6">
                     <div class="text-left text-gray-800 space-y-4">
                         <p>El programa "Hoy No Circula" en el Estado de México establece restricciones de circulación para vehículos particulares, dependiendo del color de su engomado y el último dígito de su placa.</p>
                         <ul class="list-disc list-inside ml-4">
@@ -484,7 +552,7 @@
                     <!-- Botón de WhatsApp con el número temporal actualizado -->
                     <a href="https://wa.me/14155238886?text=Hola!%20Me%20gustaría%20obtener%20más%20información%20sobre%20la%20verificación%20vehicular." target="_blank" class="whatsapp-btn">
                         <svg class="whatsapp-icon" viewBox="0 0 24 24">
-                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.45 5.31 5.42-1.42c1.45.79 3.08 1.21 4.62 1.21 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm.04 1.57c4.53 0 8.22 3.69 8.22 8.22 0 4.53-3.69 8.22-8.22 8.22-.98 0-1.95-.22-2.85-.6l-.2-.11-2.04.53.54-1.99-.13-.21c-.49-.78-.75-1.68-.75-2.61 0-4.53 3.69-8.22 8.22-8.22zm-3.23 4.51c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22z"/>
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.45 5.31 5.42-1.42c1.45.79 3.08 1.21 4.62 1.21 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm.04 1.57c4.53 0 8.22 3.69 8.22 8.22 0 4.53-3.69 8.22-8.22 8.22-.98 0-1.95-.22-2.85-.6l-.2-.11-2.04.53.54-1.99-.13-.21c-.49-.78-.75-1.68-.75-2.61 0-4.53 3.69-8.22 8.22-8.22zm-3.23 4.51c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22z" />
                         </svg>
                         Enviar mensaje de WhatsApp
                     </a>
@@ -541,9 +609,8 @@
                         </p>
                         <!-- Google Map Embed -->
                         <div class="map-container mt-6">
-                            <iframe
-                                src="https://maps.google.com/maps?q=Blvrd%20Toluca%20Metepec%20639,%20La%20Purisima,%2052169%20San%20Jorge%20Pueblo%20Nuevo,%20M%C3%A9x.&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            <iframe src="https://maps.google.com/maps?q=Blvrd%20Toluca%20Metepec%20639,%20La%20Purisima,%2052169%20San%20Jorge%20Pueblo%20Nuevo,%20M%C3%A9x.&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
                     </div>
@@ -567,22 +634,19 @@
         let chatHistory = [];
 
         // Función para manejar la carga de la imagen del logo
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const logoImg = document.querySelector('.logo-animate');
-            const originalSrc = logoImg.src; // Guarda el src original (placeholder)
-
-            // Intenta cargar la imagen real del logo
-            // Nota: Si el logo real no se carga, se mantendrá el placeholder.
-            // Para uso local, asegúrate de que 'logo.png' esté en la misma carpeta que tu HTML.
-            const realLogoUrl = 'logo.png'; // Cambiado a ruta relativa
+            // Nota: Para tu logo real, sube la imagen a un servicio de hosting web (como GitHub Pages, Imgur, etc.)
+            // y reemplaza la URL de abajo con el enlace directo a tu imagen.
+            const realLogoUrl = 'https://placehold.co/150x50/000000/FFFFFF?text=Tu+Logo'; // Placeholder
 
             const img = new Image();
-            img.onload = function() {
+            img.onload = function () {
                 logoImg.src = realLogoUrl; // Si carga, usa la imagen real
             };
-            img.onerror = function() {
+            img.onerror = function () {
                 console.warn('No se pudo cargar la imagen del logo real, usando placeholder.');
-                logoImg.src = originalSrc; // Si falla, usa el placeholder
+                logoImg.src = 'https://placehold.co/150x50/000000/FFFFFF?text=Verificacion'; // Fallback a un placeholder genérico
             };
             img.src = realLogoUrl; // Intenta cargar la imagen real
 
@@ -632,22 +696,25 @@
 
                 // Asegurarse de que la tarjeta principal siempre tenga fondo blanco
                 currentVerificationCard.classList.remove('bg-engomado-amarillo', 'bg-engomado-rosa', 'bg-engomado-rojo', 'bg-engomado-verde', 'bg-engomado-azul');
-                currentVerificationCard.classList.add('bg-white');
+                currentVerificationCard.classList.add('bg-white'); // Mantener el fondo de la tarjeta blanco
 
                 let contentHtml = `<strong>${verificationInfoText}</strong>`;
 
                 if (engomados.length > 0) {
                     engomados.forEach(engomado => {
                         contentHtml += `<div class="flex items-center mt-2">
-                                            <span class="color-circle ${engomado.colorClass}"></span>
-                                            <span>${engomado.text}</span>
-                                        </div>`;
+                                                <span class="color-circle ${engomado.colorClass}"></span>
+                                                <span>${engomado.text}</span>
+                                            </div>`;
                     });
                     // Asegurarse de que el div interno no tenga un fondo verde claro si hay engomados
                     currentVerificationInfoDiv.classList.remove('bg-green-100');
+                    currentVerificationInfoDiv.style.backgroundColor = 'transparent'; // Asegurar que el fondo del div interno sea transparente
+                    currentVerificationInfoDiv.style.color = '#333'; // Asegurar que el texto sea oscuro sobre fondo blanco
                 } else {
                     // Si no hay información de engomados, mostrar el mensaje predeterminado con fondo verde claro
                     currentVerificationInfoDiv.classList.add('bg-green-100');
+                    currentVerificationInfoDiv.style.color = '#333'; // Restaurar el color de texto
                 }
                 currentVerificationInfoDiv.innerHTML = contentHtml;
             }
@@ -704,7 +771,11 @@
                     }
                 };
 
-                const apiKey = ""; // La clave API será proporcionada automáticamente por el entorno Canvas
+                // NOTA IMPORTANTE: La clave API (apiKey) es proporcionada automáticamente por el entorno de Canvas
+                // cuando la página se ejecuta dentro de este entorno. Si ejecutas esta página localmente
+                // en tu navegador (ej. file:///D:/...), la clave API estará vacía y la llamada fallará.
+                // Para que funcione localmente, tendrías que insertar tu propia clave API aquí (NO RECOMENDADO para producción).
+                const apiKey = "";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 // Realizar la llamada a la API
@@ -748,7 +819,7 @@
         document.getElementById('ask-button').addEventListener('click', askGemini);
 
         // Permitir enviar la pregunta al presionar Enter en el campo de texto
-        document.getElementById('user-input').addEventListener('keypress', function(e) {
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter' && !e.shiftKey) { // Permitir Shift+Enter para una nueva línea
                 e.preventDefault(); // Prevenir el salto de línea por defecto del Enter
                 askGemini();
