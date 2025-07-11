@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoy No Circula - Estado de México</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuración de la fuente Inter */
+        html {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Estilos para el video de fondo en la pantalla de inicio */
+        #splash-screen video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que el video cubra toda la pantalla */
+            z-index: -1; /* Envía el video al fondo */
+        }
+
+        /* Estilos para el texto de la pantalla de inicio */
+        #splash-text {
+            opacity: 0; /* Inicialmente invisible */
+            transition: opacity 2s ease-in-out; /* Transición de desvanecimiento */
+        }
+
+        /* Oculta el scrollbar para una apariencia más limpia, pero permite el desplazamiento */
+        body {
+            overflow-y: auto;
+            scrollbar-width: none; /* Para Firefox */
+            -ms-overflow-style: none;  /* Para IE y Edge */
+        }
+        body::-webkit-scrollbar {
+            display: none; /* Para Chrome, Safari y Opera */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Pantalla de inicio (Splash Screen) -->
+    <div id="splash-screen" class="fixed inset-0 flex items-center justify-center bg-gray-900 text-white z-50">
+        <!--
+            Se ha cambiado la ruta del video a una ruta relativa.
+            Dado que "vista_cielo.mp4" está en el mismo directorio que el archivo HTML,
+            solo se necesita el nombre del archivo.
+        -->
+        <video autoplay loop muted playsinline>
+            <source src="vista_cielo.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+        <div id="splash-text" class="text-4xl md:text-6xl font-bold text-center p-4 bg-black bg-opacity-50 rounded-xl shadow-lg">
+            <p>Porque verificar, cuida al planeta</p>
+        </div>
+    </div>
+
+    <!-- Contenido principal de la página (inicialmente oculto) -->
+    <div id="main-content" class="min-h-screen hidden flex flex-col items-center py-12 px-4 md:px-8">
+        <header class="w-full max-w-4xl bg-gradient-to-r from-emerald-600 to-green-800 text-white p-6 md:p-8 rounded-xl shadow-lg mb-12 text-center">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-2">Nuevo Hoy No Circula</h1>
+            <p class="text-xl md:text-2xl font-light">Estado de México - A partir del 1 de julio de 2025</p>
+        </header>
+
+        <main class="w-full max-w-4xl bg-white p-6 md:p-10 rounded-xl shadow-xl space-y-8">
+
+            <!-- Sección de Introducción -->
+            <section class="border-b pb-6 border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-bold text-emerald-700 mb-4">¡Prepárate para el cambio!</h2>
+                <p class="text-lg leading-relaxed">
+                    El nuevo programa <strong class="font-semibold">Hoy No Circula</strong> inicia el <strong class="font-semibold">1 de julio de 2025</strong>.
+                    Este nuevo programa aplica en el Estado de México del 1 de julio al 31 de diciembre de 2025.
+                    A partir de enero de 2026 comenzarán las sanciones, así que conoce qué día descansa tu auto y verifica a tiempo para evitar contratiempos.
+                </p>
+            </section>
+
+            <!-- Sección de Fechas Clave -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 border-b pb-6 border-gray-200">
+                <div class="bg-emerald-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl md:text-2xl font-semibold text-emerald-600 mb-3">¿Desde cuándo aplica?</h3>
+                    <p class="text-lg leading-relaxed">
+                        El programa entra en vigor el <strong class="font-semibold">1 de julio de 2025</strong> con una fase de socialización <strong class="font-semibold text-green-700">sin multas</strong>.
+                    </p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl md:text-2xl font-semibold text-red-600 mb-3">¿Cuándo inician las sanciones?</h3>
+                    <p class="text-lg leading-relaxed">
+                        A partir del <strong class="font-semibold">1 de enero de 2026</strong>, se aplicarán multas a quienes circulen en días restringidos según el color de engomado y último dígito de placa.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección de Consulta de Calendario -->
+            <section class="border-b pb-6 border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-bold text-emerald-700 mb-4">Consulta tu calendario de circulación</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Verifica el día que te corresponde descansar según el engomado de tu auto y mantente al tanto de contingencias ambientales.
+                </p>
+
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Calendario del programa Hoy No Circula en el Estado de México para 2025</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-yellow-100 p-4 rounded-lg shadow-sm flex items-center space-x-3">
+                        <span class="text-3xl">🟡</span>
+                        <div>
+                            <p class="font-bold text-lg">Lunes</p>
+                            <p class="text-sm">Holograma 1 o 2, placa termina en 5 o 6.</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-100 p-4 rounded-lg shadow-sm flex items-center space-x-3">
+                        <span class="text-3xl">🟣</span>
+                        <div>
+                            <p class="font-bold text-lg">Martes</p>
+                            <p class="text-sm">Holograma 1 o 2, placa termina en 7 u 8.</p>
+                        </div>
+                    </div>
+                    <div class="bg-red-100 p-4 rounded-lg shadow-sm flex items-center space-x-3">
+                        <span class="text-3xl">🔴</span>
+                        <div>
+                            <p class="font-bold text-lg">Miércoles</p>
+                            <p class="text-sm">Holograma 1 o 2, placa termina en 3 o 4.</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-100 p-4 rounded-lg shadow-sm flex items-center space-x-3">
+                        <span class="text-3xl">🟢</span>
+                        <div>
+                            <p class="font-bold text-lg">Jueves</p>
+                            <p class="text-sm">Holograma 1 o 2, placa y termina en 1 o 2.</p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg shadow-sm flex items-center space-x-3">
+                        <span class="text-3xl">🔵</span>
+                        <div>
+                            <p class="font-bold text-lg">Viernes</p>
+                            <p class="text-sm">Holograma 1, 2 o permiso provisional, placa termina en 9 o 0.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Sábados y Exentos -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 border-b pb-6 border-gray-200">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-3">🚫 ¿Y los sábados?</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2">
+                        <li>
+                            <strong class="font-semibold">HOLOGRAMA 1:</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li>1º y 3º sábado de cada mes, no circula si la placa termina en número impar.</li>
+                                <li>2º y 4º sábado de cada mes, no circula si la placa termina en número par.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong class="font-semibold">HOLOGRAMA 2:</strong>
+                            <ul class="list-circle list-inside ml-4">
+                                <li>No circula ningún sábado del mes.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl md:text-2xl font-semibold text-green-700 mb-3">✅ Vehículos exentos</h3>
+                    <p class="text-lg leading-relaxed">
+                        Vehículos con <strong class="font-semibold">holograma 00 o 0</strong> y vehículos <strong class="font-semibold">eléctricos e híbridos</strong> pueden circular todos los días sin restricciones.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección de Call to Action -->
+            <section class="text-center pt-6">
+                <p class="text-sm text-gray-500 mb-6">Información basada en la Gaceta Oficial publicada el 28 de junio de 2025.</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-emerald-700 mb-4">¡Verifica a tiempo y olvídate de las multas!</h2>
+                <p class="text-lg leading-relaxed mb-8">
+                    Agenda tu cita con nosotros, consulta el calendario oficial del programa Hoy No Circula y asegura la movilidad de tu vehículo en el Estado de México.
+                </p>
+                <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-emerald-300">
+                    ¡Agenda tu cita ahora!
+                </button>
+                <p class="text-xl md:text-2xl font-semibold text-gray-600 mt-8">Cuida el planeta, cuida de ti</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            const splashText = document.getElementById('splash-text');
+            const mainContent = document.getElementById('main-content');
+
+            // Muestra el texto con transición después de un breve retraso
+            setTimeout(() => {
+                splashText.style.opacity = '1';
+            }, 500); // Pequeño retraso para que la transición sea visible
+
+            // Oculta la pantalla de inicio y muestra el contenido principal después de 5 segundos
+            setTimeout(() => {
+                splashScreen.classList.add('hidden'); // Oculta completamente la pantalla de inicio
+                mainContent.classList.remove('hidden'); // Muestra el contenido principal
+                mainContent.classList.add('flex'); // Asegura que el main-content use flexbox para el diseño
+            }, 5000); // 5000 milisegundos = 5 segundos
+        });
+    </script>
+</body>
+</html>

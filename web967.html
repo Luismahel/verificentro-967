@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificentro 967 - Verificación Vehicular</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e6f3e6; /* Un verde muy claro */
+            color: #333;
+            line-height: 1.6;
+        }
+        .header-bg {
+            background: linear-gradient(to right, #28a745, #1e8838); /* Tonos de verde para el encabezado */
+        }
+        .btn-primary {
+            background-color: #28a745; /* Verde primario */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Totalmente redondeado */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #218838; /* Verde más oscuro al pasar el ratón */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .whatsapp-btn {
+            background-color: #25d366; /* Verde WhatsApp */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+        }
+        .whatsapp-btn:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem; /* Esquinas más redondeadas */
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 1px solid #e2e8f0; /* Borde suave */
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+        }
+        .section-heading {
+            font-size: 2.5rem; /* Título más grande */
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #28a745; /* Línea verde debajo del título */
+            border-radius: 2px;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAnimation 0.8s ease-out forwards;
+        }
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Animación para el logo */
+        .logo-animate {
+            animation: bounceIn 1s ease-out forwards;
+        }
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        /* Animación para los elementos de la lista */
+        .list-item-animate {
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Retraso para las animaciones de lista */
+        .list-item-animate:nth-child(1) { animation-delay: 0.1s; }
+        .list-item-animate:nth-child(2) { animation-delay: 0.2s; }
+        .list-item-animate:nth-child(3) { animation-delay: 0.3s; }
+        .list-item-animate:nth-child(4) { animation-delay: 0.4s; }
+        .list-item-animate:nth-child(5) { animation-delay: 0.5s; }
+        .list-item-animate:nth-child(6) { animation-delay: 0.6s; }
+        .list-item-animate:nth-child(7) { animation-delay: 0.7s; }
+        .list-item-animate:nth-child(8) { animation-delay: 0.8s; }
+        .list-item-animate:nth-child(9) { animation-delay: 0.9s; }
+        .list-item-animate:nth-child(10) { animation-delay: 1.0s; }
+
+        /* Estilos para el icono de WhatsApp (SVG) */
+        .whatsapp-icon {
+            width: 28px; /* Icono más grande */
+            height: 28px;
+            fill: currentColor; /* Asegura que el SVG tome el color del texto del botón */
+        }
+        .hologram-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: #f8fafc; /* Fondo ligeramente diferente */
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .hologram-card:hover {
+            transform: translateY(-3px);
+        }
+        .hologram-icon {
+            font-size: 3rem; /* Emojis más grandes */
+            margin-bottom: 0.75rem;
+        }
+        /* Estilos para el mapa */
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide height by width) */
+            border-radius: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Estilos para la pantalla de inicio */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: #0A190A; /* Verde muy oscuro, casi negro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-direction: column; /* Para centrar el texto verticalmente */
+        }
+        #splash-message {
+            color: white;
+            font-size: 2.5rem; /* Ajustado para mejor visualización */
+            font-weight: 800;
+            text-align: center;
+            animation: slideDown 1.5s ease-out forwards;
+            opacity: 0;
+            padding: 0 1rem; /* Pequeño padding para evitar que el texto toque los bordes */
+        }
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Estilo para el círculo de color */
+        .color-circle {
+            display: inline-block;
+            width: 20px; /* Tamaño del círculo */
+            height: 20px;
+            border-radius: 50%; /* Hacerlo circular */
+            margin-right: 8px; /* Espacio a la derecha del texto */
+            vertical-align: middle; /* Alinear verticalmente con el texto */
+            border: 1px solid rgba(0,0,0,0.1); /* Borde sutil para que se vea en fondos claros */
+        }
+        /* Colores de los engomados */
+        .bg-engomado-amarillo { background-color: #FFD700; /* Oro */ }
+        .bg-engomado-rosa { background-color: #FF69B4; /* Rosa fuerte */ }
+        .bg-engomado-rojo { background-color: #FF4500; /* Rojo anaranjado */ }
+        .bg-engomado-verde { background-color: #32CD32; /* Verde lima */ }
+        .bg-engomado-azul { background-color: #4169E1; /* Azul real */ }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <h1 id="splash-message">TODO LO QUE NECESITAS PARA TU VERIFICACION ESTA AQUI</h1>
+    </div>
+
+    <!-- Main Content (Hidden initially, shown after splash) -->
+    <div id="main-content" style="display: none;">
+        <!-- Header -->
+        <header class="header-bg text-white p-6 shadow-lg">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <!-- Logo del Verificentro -->
+                    <img src="https://placehold.co/150x50/000000/FFFFFF?text=Verificacion" alt="Logo Verificación" class="h-12 logo-animate">
+                    <span class="text-3xl font-bold">Verificentro 967</span>
+                </div>
+                <nav>
+                    <ul class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg">
+                        <li><a href="#inicio" class="hover:text-green-200 transition duration-300">Inicio</a></li>
+                        <li><a href="#pvvo" class="hover:text-green-200 transition duration-300">PVVO 2025</a></li>
+                        <li><a href="#hoy-no-circula" class="hover:text-green-200 transition duration-300">Hoy No Circula</a></li>
+                        <li><a href="#tramites-vehiculares" class="hover:text-green-200 transition duration-300">Trámites</a></li>
+                        <li><a href="#generar-cita" class="hover:text-green-200 transition duration-300">Generar Cita</a></li>
+                        <li><a href="#contacto" class="hover:text-green-200 transition duration-300">Contacto</a></li>
+                        <li><a href="#gemini-assistant" class="hover:text-green-200 transition duration-300">Asistente AI</a></li>
+                        <li><a href="#nosotros" class="hover:text-green-200 transition duration-300">Nosotros</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="inicio" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('fondo.jpg');">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="relative z-10 text-white p-8 max-w-4xl mx-auto fade-in">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                    Tu Verificentro ME 967 ambiental la purisima
+                </h1>
+                <p class="text-xl md:text-2xl mb-8">
+                    Cumple con la verificación vehicular de manera rápida, eficiente y con la mejor atención.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <a href="#contacto" class="btn-primary text-xl inline-block">
+                        Agenda tu cita
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PVVO 2025 Section -->
+        <section id="pvvo" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="section-heading fade-in">Programa de Verificación Vehicular Obligatoria (PVVO) - Segundo Semestre 2025</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tarjeta de Verificación Actual -->
+                    <div id="currentVerificationCard" class="card p-8 fade-in lg:col-span-1" style="animation-delay: 0.1s;">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center gap-2">
+                            📅 Verificación Actual
+                        </h3>
+                        <p class="mb-4 text-gray-700">Según el mes actual, estos son los vehículos que deben verificar:</p>
+                        <div id="currentVerificationInfo" class="text-xl font-extrabold text-gray-900 p-4 rounded-lg">
+                            <!-- La información se cargará aquí dinámicamente -->
+                            Cargando información...
+                        </div>
+                    </div>
+
+                    <div class="card p-8 fade-in lg:col-span-1" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center gap-2">
+                            🗓️ Calendario por Engomado
+                        </h3>
+                        <p class="mb-6 text-gray-700">
+                            La verificación vehicular se organiza por el color del engomado y el último dígito de la placa.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-800 space-y-2">
+                            <li class="list-item-animate"><strong>Amarillo (5 y 6):</strong> Julio - Agosto</li>
+                            <li class="list-item-animate"><strong>Rosa (7 y 8):</strong> Agosto - Septiembre</li>
+                            <li class="list-item-animate"><strong>Rojo (3 y 4):</strong> Septiembre - Octubre</li>
+                            <li class="list-item-animate"><strong>Verde (1 y 2):</strong> Octubre - Noviembre</li>
+                            <li class="list-item-animate"><strong>Azul (9 y 0):</strong> Noviembre - Diciembre</li>
+                        </ul>
+                        <p class="mt-6 text-sm text-gray-600">
+                            *Este calendario aplica generalmente para la CDMX y EdoMex.
+                        </p>
+                    </div>
+                    <div class="card p-8 fade-in lg:col-span-1" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center gap-2">
+                            💰 Costos y Requisitos
+                        </h3>
+                        <p class="mb-6 text-gray-700">
+                            Los costos pueden variar ligeramente por entidad. Es fundamental agendar una cita.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-800 space-y-2">
+                            <li class="list-item-animate"><strong>Holograma 00:</strong> ~$1,131 MXN</li>
+                            <li class="list-item-animate"><strong>Holograma 0:</strong> ~$566 MXN</li>
+                            <li class="list-item-animate"><strong>Holograma 1 y 2:</strong> ~$453 MXN</li>
+                            <li class="list-item-animate"><strong>Vehículos exentos:</strong> Eléctricos, híbridos, etc.</li>
+                            <li class="list-item-animate"><strong>Documentos:</strong> Tarjeta de circulación, comprobante anterior, factura (nuevos).</li>
+                            <li class="list-item-animate"><strong>Importante:</strong> Sin adeudos de tenencia, multas o sanciones.</li>
+                        </ul>
+                        <p class="mt-6 text-sm text-gray-600">
+                            *Costos aproximados. Consulta fuentes oficiales para detalles.
+                        </p>
+                    </div>
+
+                    <!-- Sección de Hologramas -->
+                    <div class="card p-8 col-span-full fade-in" style="animation-delay: 0.8s;">
+                        <h3 class="text-2xl font-semibold mb-6 text-green-700 text-center flex items-center justify-center gap-2">
+                            ✨ Tipos de Hologramas
+                        </h3>
+                        <p class="text-center text-gray-700 mb-8">Conoce los diferentes hologramas que puedes obtener:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="hologram-card">
+                                <span class="hologram-icon">🚗💨</span>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Holograma 00</h4>
+                                <p class="text-sm text-gray-600">Vehículos nuevos de alto rendimiento y bajas emisiones. Doble cero.</p>
+                            </div>
+                            <div class="hologram-card">
+                                <span class="hologram-icon">✅</span>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Holograma 0</h4>
+                                <p class="text-sm text-gray-600">Vehículos con buen desempeño ambiental, circulan diario.</p>
+                            </div>
+                            <div class="hologram-card">
+                                <span class="hologram-icon">⚠️</span>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Holograma 1</h4>
+                                <p class="text-sm text-gray-600">Vehículos con ciertas restricciones de circulación (un día a la semana).</p>
+                            </div>
+                            <div class="hologram-card">
+                                <span class="hologram-icon">🚫</span>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Holograma 2</h4>
+                                <p class="text-sm text-gray-600">Vehículos con mayores restricciones de circulación (dos días a la semana).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Condonación de Multas -->
+                    <div class="card p-8 col-span-full fade-in" style="animation-delay: 1.0s;">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center justify-center gap-2">
+                            💸 Condonación de Multas por Verificación Extemporánea
+                        </h3>
+                        <p class="mb-6 text-gray-700 text-center">
+                            En el Estado de México, existe un programa de condonación de multas para facilitar la regularización.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-800 space-y-2 max-w-2xl mx-auto">
+                            <li class="list-item-animate"><strong>Aplica para:</strong> Vehículos particulares matriculados en el Estado de México cuya última verificación haya sido en el segundo semestre de 2023 o anterior.</li>
+                            <li class="list-item-animate text-red-600 font-bold"><strong>🚨 IMPORTANTE:</strong> Esta condonación NO aplica para vehículos que no hayan verificado en los últimos 3 periodos anteriores (primer y segundo semestre de 2024, y primer semestre de 2025).</li>
+                            <li class="list-item-animate text-red-600 font-bold"><strong>⛔ NO aplica para:</strong> Vehículos con cambios de placas recientes.</li>
+                            <li class="list-item-animate">La verificación realizada bajo este acuerdo se tomará como la correspondiente al segundo semestre de 2025.</li>
+                        </ul>
+                        <p class="mt-6 text-sm text-gray-600 text-center">
+                            *Para conocer los detalles completos y verificar si tu vehículo es candidato, consulta las publicaciones oficiales del Gobierno del Estado de México.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hoy No Circula Section -->
+        <section id="hoy-no-circula" class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Programa Hoy No Circula - Estado de México</h2>
+                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
+                    Conoce las restricciones de circulación para vehículos en el Estado de México.
+                </p>
+                <div class="max-w-4xl mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
+                    <!-- Usando la ruta relativa para la imagen local -->
+                    <img src="calendario.jpg" alt="Programa Hoy No Circula Estado de México" class="w-full h-auto rounded-lg shadow-md mb-6">
+                    <div class="text-left text-gray-800 space-y-4">
+                        <p>El programa "Hoy No Circula" en el Estado de México establece restricciones de circulación para vehículos particulares, dependiendo del color de su engomado y el último dígito de su placa.</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li><strong>Lunes:</strong> 🟡 Amarillo (terminación de placa 5 y 6)</li>
+                            <li><strong>Martes:</strong> 🌸 Rosa (terminación de placa 7 y 8)</li>
+                            <li><strong>Miércoles:</strong> 🔴 Rojo (terminación de placa 3 y 4)</li>
+                            <li><strong>Jueves:</strong> 🟢 Verde (terminación de placa 1 y 2)</li>
+                            <li><strong>Viernes:</strong> 🔵 Azul (terminación de placa 9 y 0)</li>
+                        </ul>
+                        <p class="font-semibold mt-4">Consideraciones adicionales:</p>
+                        <ul class="list-disc list-inside ml-4">
+                            <li><strong>Holograma 1:</strong> No circula un día entre semana (según color de engomado y último dígito de placa) y los sábados (par: 2do y 4to sábado de cada mes; impar: 1er y 3er sábado de cada mes).</li>
+                            <li><strong>Holograma 2:</strong> No circula un día entre semana (según color de engomado y último dígito de placa) y no circula ningún sábado.</li>
+                            <li>Vehículos con hologramas 0 y 00 están exentos de estas restricciones diarias, pero deben respetar los lineamientos de contingencias ambientales.</li>
+                        </ul>
+                        <p class="mt-6 text-sm text-gray-600">
+                            *Esta información es de carácter general y puede estar sujeta a cambios por las autoridades. Se recomienda consultar fuentes oficiales para la información más actualizada.
+                        </p>
+                    </div>
+                    <!-- Botón para ir a la página de información de Hoy No Circula -->
+                    <div class="mt-6">
+                        <a href="page2/InfHNC.html" class="btn-primary text-xl inline-block">
+                            Más información sobre Hoy No Circula
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Trámites Vehiculares -->
+        <section id="tramites-vehiculares" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Trámites Vehiculares en Línea 💻</h2>
+                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
+                    También puedes realizar una variedad de trámites vehiculares directamente desde el sitio oficial del Gobierno del Estado de México.
+                </p>
+                <div class="max-w-3xl mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
+                    <p class="mb-4 text-gray-800">
+                        Accede al portal de recaudación para gestionar pagos, consultas y otros trámites relacionados con tu vehículo de forma rápida y segura.
+                    </p>
+                    <a href="https://sfpya.edomexico.gob.mx/recaudacion/" target="_blank" class="btn-primary inline-block text-xl">
+                        Ir al Sitio de Trámites Vehiculares
+                    </a>
+                    <p class="mt-6 text-md text-gray-600">
+                        Si necesitas ayuda o tienes preguntas sobre cómo realizar estos trámites, no dudes en <a href="#gemini-assistant" class="text-green-700 font-semibold hover:underline">preguntar a nuestro asistente virtual</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Generar Cita -->
+        <section id="generar-cita" class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Generar Cita de Verificación 🗓️</h2>
+                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
+                    Puedes agendar tu cita para la verificación vehicular directamente en el portal oficial, o si lo prefieres, podemos ayudarte a gestionarla.
+                </p>
+                <div class="max-w-3xl mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
+                    <p class="mb-4 text-gray-800">
+                        Haz clic en el botón para ser redirigido al sitio de citas del Estado de México:
+                    </p>
+                    <a href="https://citaverificacion.edomex.gob.mx/RegistroCitas/" target="_blank" class="btn-primary inline-block text-xl">
+                        Generar Cita en Línea
+                    </a>
+                    <p class="mt-6 text-md text-gray-600">
+                        Si necesitas asistencia para agendar tu cita o tienes alguna dificultad, no dudes en contactarnos directamente por WhatsApp o usar nuestro asistente virtual.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Contáctanos</h2>
+                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
+                    ¿Tienes preguntas o necesitas agendar una cita en Verificentro 967? ¡Estamos aquí para ayudarte!
+                </p>
+                <div class="max-w-md mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-2xl font-semibold mb-6 text-green-700 flex items-center justify-center gap-2">
+                        💬 Envíanos un mensaje por WhatsApp
+                    </h3>
+                    <p class="mb-6 text-gray-700">Haz clic en el botón para iniciar una conversación directa con nosotros.</p>
+                    <!-- Botón de WhatsApp con el número temporal actualizado -->
+                    <a href="https://wa.me/14155238886?text=Hola!%20Me%20gustaría%20obtener%20más%20información%20sobre%20la%20verificación%20vehicular." target="_blank" class="whatsapp-btn">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.45 5.31 5.42-1.42c1.45.79 3.08 1.21 4.62 1.21 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm.04 1.57c4.53 0 8.22 3.69 8.22 8.22 0 4.53-3.69 8.22-8.22 8.22-.98 0-1.95-.22-2.85-.6l-.2-.11-2.04.53.54-1.99-.13-.21c-.49-.78-.75-1.68-.75-2.61 0-4.53 3.69-8.22 8.22-8.22zm-3.23 4.51c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22z"/>
+                        </svg>
+                        Enviar mensaje de WhatsApp
+                    </a>
+                    <p class="mt-4 text-sm text-gray-600">
+                        Número temporal: +1 415 523 8886
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New section for Gemini Assistant (Moved here) -->
+        <section id="gemini-assistant" class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Asistente de Verificación ✨</h2>
+                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
+                    Pregúntale a nuestro asistente impulsado por IA sobre la verificación vehicular, el Hoy No Circula, o cualquier duda que tengas.
+                </p>
+                <div class="max-w-2xl mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
+                    <div id="chat-display" class="bg-gray-100 p-4 rounded-lg text-left mb-6 h-64 overflow-y-auto border border-gray-200">
+                        <p class="text-gray-600">¡Hola! ¿En qué puedo ayudarte hoy?</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <textarea id="user-input" class="flex-grow p-3 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 resize-none" rows="3" placeholder="Escribe tu pregunta aquí..."></textarea>
+                        <button id="ask-button" class="btn-primary flex-shrink-0 px-6 py-3">
+                            Preguntar ✨
+                        </button>
+                    </div>
+                    <div id="loading-indicator" class="mt-4 text-green-700 font-semibold hidden">
+                        Cargando respuesta...
+                    </div>
+                    <div id="error-message" class="mt-4 text-red-600 font-semibold hidden">
+                        Hubo un error al obtener la respuesta. Intenta de nuevo.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section (Moved to last) -->
+        <section id="nosotros" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Sobre Nosotros</h2>
+                <div class="max-w-3xl mx-auto text-lg text-gray-700 fade-in" style="animation-delay: 0.2s;">
+                    <p class="mb-4">
+                        Verificentro 967 es tu aliado para mantener tu vehículo al día con las normativas ambientales. Nos ubicamos en una zona estratégica para tu comodidad.
+                    </p>
+                    <p class="mb-6">
+                        Contamos con equipos de última generación y personal altamente capacitado para garantizar un servicio de verificación vehicular preciso y confiable.
+                    </p>
+                    <div class="card p-6 inline-block text-left">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">📍 Nuestra Dirección:</h3>
+                        <p class="text-gray-800">
+                            Blvrd Toluca Metepec 639, La Purisima, <br>
+                            52169 San Jorge Pueblo Nuevo, Méx.
+                        </p>
+                        <!-- Google Map Embed -->
+                        <div class="map-container mt-6">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Blvrd%20Toluca%20Metepec%20639,%20La%20Purisima,%2052169%20San%20Jorge%20Pueblo%20Nuevo,%20M%C3%A9x.&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-6 text-center">
+            <div class="container mx-auto">
+                <p>&copy; 2025 Verificentro 967. Todos los derechos reservados.</p>
+                <p class="text-sm mt-2">
+                    Información del PVVO y Hoy No Circula basada en datos generales para CDMX y Estado de México. Se recomienda verificar la información oficial.
+                </p>
+            </div>
+        </footer>
+    </div> <!-- End of main-content -->
+
+    <script>
+        // Global chat history for the Gemini assistant
+        let chatHistory = [];
+
+        // Función para manejar la carga de la imagen del logo
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImg = document.querySelector('.logo-animate');
+            const originalSrc = logoImg.src; // Guarda el src original (placeholder)
+
+            // Intenta cargar la imagen real del logo
+            // Nota: Si el logo real no se carga, se mantendrá el placeholder.
+            // Para uso local, asegúrate de que 'logo.png' esté en la misma carpeta que tu HTML.
+            const realLogoUrl = 'logo.png'; // Cambiado a ruta relativa
+
+            const img = new Image();
+            img.onload = function() {
+                logoImg.src = realLogoUrl; // Si carga, usa la imagen real
+            };
+            img.onerror = function() {
+                console.warn('No se pudo cargar la imagen del logo real, usando placeholder.');
+                logoImg.src = originalSrc; // Si falla, usa el placeholder
+            };
+            img.src = realLogoUrl; // Intenta cargar la imagen real
+
+            // Función para mostrar la verificación actual
+            function displayCurrentVerification() {
+                const currentDate = new Date();
+                const currentMonth = currentDate.getMonth(); // 0-11 (Enero=0, Diciembre=11)
+                const currentYear = currentDate.getFullYear();
+
+                let verificationInfoText = "Información no disponible para el mes actual.";
+                let engomados = []; // Array to hold objects { colorClass: 'bg-engomado-...', text: 'Amarillo (5 y 6)' }
+
+                // Definir los periodos de verificación para el segundo semestre de 2025
+                // Meses: Julio (6), Agosto (7), Septiembre (8), Octubre (9), Noviembre (10), Diciembre (11)
+                if (currentYear === 2025) {
+                    if (currentMonth === 6) { // Julio
+                        engomados.push({ colorClass: "bg-engomado-amarillo", text: "Amarillo (terminación 5 y 6)" });
+                        verificationInfoText = "Julio:";
+                    } else if (currentMonth === 7) { // Agosto
+                        engomados.push({ colorClass: "bg-engomado-amarillo", text: "Amarillo (terminación 5 y 6)" });
+                        engomados.push({ colorClass: "bg-engomado-rosa", text: "Rosa (terminación 7 y 8)" });
+                        verificationInfoText = "Agosto:";
+                    } else if (currentMonth === 8) { // Septiembre
+                        engomados.push({ colorClass: "bg-engomado-rosa", text: "Rosa (terminación 7 y 8)" });
+                        engomados.push({ colorClass: "bg-engomado-rojo", text: "Rojo (terminación 3 y 4)" });
+                        verificationInfoText = "Septiembre:";
+                    } else if (currentMonth === 9) { // Octubre
+                        engomados.push({ colorClass: "bg-engomado-rojo", text: "Rojo (terminación 3 y 4)" });
+                        engomados.push({ colorClass: "bg-engomado-verde", text: "Verde (terminación 1 y 2)" });
+                        verificationInfoText = "Octubre:";
+                    } else if (currentMonth === 10) { // Noviembre
+                        engomados.push({ colorClass: "bg-engomado-verde", text: "Verde (terminación 1 y 2)" });
+                        engomados.push({ colorClass: "bg-engomado-azul", text: "Azul (terminación 9 y 0)" });
+                        verificationInfoText = "Noviembre:";
+                    } else if (currentMonth === 11) { // Diciembre
+                        engomados.push({ colorClass: "bg-engomado-azul", text: "Azul (terminación 9 y 0)" });
+                        verificationInfoText = "Diciembre:";
+                    } else {
+                        verificationInfoText = "El calendario mostrado es para el segundo semestre de 2025. Actualmente no estamos en ese periodo.";
+                    }
+                } else {
+                    verificationInfoText = "El calendario mostrado es para el segundo semestre de 2025.";
+                }
+
+                const currentVerificationCard = document.getElementById('currentVerificationCard');
+                const currentVerificationInfoDiv = document.getElementById('currentVerificationInfo');
+
+                // Asegurarse de que la tarjeta principal siempre tenga fondo blanco
+                currentVerificationCard.classList.remove('bg-engomado-amarillo', 'bg-engomado-rosa', 'bg-engomado-rojo', 'bg-engomado-verde', 'bg-engomado-azul');
+                currentVerificationCard.classList.add('bg-white');
+
+                let contentHtml = `<strong>${verificationInfoText}</strong>`;
+
+                if (engomados.length > 0) {
+                    engomados.forEach(engomado => {
+                        contentHtml += `<div class="flex items-center mt-2">
+                                            <span class="color-circle ${engomado.colorClass}"></span>
+                                            <span>${engomado.text}</span>
+                                        </div>`;
+                    });
+                    // Asegurarse de que el div interno no tenga un fondo verde claro si hay engomados
+                    currentVerificationInfoDiv.classList.remove('bg-green-100');
+                } else {
+                    // Si no hay información de engomados, mostrar el mensaje predeterminado con fondo verde claro
+                    currentVerificationInfoDiv.classList.add('bg-green-100');
+                }
+                currentVerificationInfoDiv.innerHTML = contentHtml;
+            }
+
+            // Llamar a la función al cargar la página
+            displayCurrentVerification();
+
+            // Splash Screen Logic
+            const splashScreen = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-content');
+
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+                mainContent.style.display = 'block'; // Show the main content
+            }, 2000); // 2 seconds
+        });
+
+        /**
+         * Función asíncrona para enviar la pregunta del usuario al modelo Gemini
+         * y mostrar la respuesta en la interfaz de chat.
+         */
+        async function askGemini() {
+            const userInput = document.getElementById('user-input').value.trim();
+            // Si la entrada del usuario está vacía, no hacer nada
+            if (!userInput) return;
+
+            const chatDisplay = document.getElementById('chat-display');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const errorMessage = document.getElementById('error-message');
+            const askButton = document.getElementById('ask-button');
+            const userInputField = document.getElementById('user-input');
+
+            // Limpiar mensajes de error previos
+            errorMessage.classList.add('hidden');
+
+            // Añadir el mensaje del usuario al historial de chat y mostrarlo
+            chatHistory.push({ role: "user", parts: [{ text: userInput }] });
+            chatDisplay.innerHTML += `<p class="text-blue-800 font-semibold mt-2">Tú: ${userInput}</p>`;
+            chatDisplay.scrollTop = chatDisplay.scrollHeight; // Desplazarse al final del chat
+
+            userInputField.value = ''; // Limpiar el campo de entrada
+            askButton.disabled = true; // Deshabilitar el botón para evitar múltiples envíos
+            loadingIndicator.classList.remove('hidden'); // Mostrar el indicador de carga
+
+            try {
+                // Preparar el payload para la llamada a la API de Gemini
+                const payload = {
+                    contents: chatHistory, // Enviar todo el historial de chat para mantener el contexto
+                    generationConfig: {
+                        // Configuraciones opcionales para la generación de texto
+                        // "temperature": 0.7, // Controla la aleatoriedad de la respuesta (0.0-1.0)
+                        // "topP": 0.9,      // Muestreo basado en la probabilidad acumulada
+                        // "topK": 40        // Muestreo basado en los k tokens más probables
+                    }
+                };
+
+                const apiKey = ""; // La clave API será proporcionada automáticamente por el entorno Canvas
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                // Realizar la llamada a la API
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                // Verificar la estructura de la respuesta y extraer el texto
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    // Añadir la respuesta del modelo al historial de chat y mostrarla
+                    chatHistory.push({ role: "model", parts: [{ text: text }] });
+                    chatDisplay.innerHTML += `<p class="text-gray-800 mt-2"><strong>Asistente:</strong> ${text}</p>`;
+                } else {
+                    // Manejar casos donde la estructura de la respuesta es inesperada
+                    console.error("Unexpected API response structure:", result);
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.textContent = "Lo siento, no pude obtener una respuesta. La estructura de la API es inesperada.";
+                    chatHistory.push({ role: "model", parts: [{ text: "Lo siento, no pude obtener una respuesta." }] });
+                }
+            } catch (error) {
+                // Manejar errores de red o de la API
+                console.error("Error calling Gemini API:", error);
+                errorMessage.classList.remove('hidden');
+                errorMessage.textContent = "Hubo un error de conexión con el asistente. Intenta de nuevo más tarde.";
+                chatHistory.push({ role: "model", parts: [{ text: "Hubo un error al conectar con el asistente." }] });
+            } finally {
+                loadingIndicator.classList.add('hidden'); // Ocultar el indicador de carga
+                askButton.disabled = false; // Habilitar el botón de nuevo
+                chatDisplay.scrollTop = chatDisplay.scrollHeight; // Desplazarse al final del chat de nuevo
+            }
+        }
+
+        // Añadir event listener al botón "Preguntar"
+        document.getElementById('ask-button').addEventListener('click', askGemini);
+
+        // Permitir enviar la pregunta al presionar Enter en el campo de texto
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) { // Permitir Shift+Enter para una nueva línea
+                e.preventDefault(); // Prevenir el salto de línea por defecto del Enter
+                askGemini();
+            }
+        });
+    </script>
+</body>
+</html>
