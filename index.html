@@ -9,7 +9,10 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e6f3e6;
+            background-image: url('ecofond.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             color: #333;
             line-height: 1.6;
         }
@@ -292,6 +295,27 @@
         .bg-engomado-azul {
             background-color: #4169E1;
         }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-top: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+            .video-container video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
     </style>
 </head>
 <body class="antialiased">
@@ -310,13 +334,13 @@
                 <nav>
                     <ul class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg">
                         <li><a href="#inicio" class="hover:text-green-200 transition duration-300">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-green-200 transition duration-300">Nosotros</a></li>
+                        <li><a href="#contacto" class="hover:text-green-200 transition duration-300">Contacto</a></li>
                         <li><a href="#pvvo" class="hover:text-green-200 transition duration-300">PVVO 2025</a></li>
                         <li><a href="#hoy-no-circula" class="hover:text-green-200 transition duration-300">Hoy No Circula</a></li>
                         <li><a href="#tramites-vehiculares" class="hover:text-green-200 transition duration-300">Trámites</a></li>
                         <li><a href="#generar-cita" class="hover:text-green-200 transition duration-300">Generar Cita</a></li>
-                        <li><a href="#contacto" class="hover:text-green-200 transition duration-300">Contacto</a></li>
                         <li><a href="#gemini-assistant" class="hover:text-green-200 transition duration-300">Asistente AI</a></li>
-                        <li><a href="#nosotros" class="hover:text-green-200 transition duration-300">Nosotros</a></li>
                     </ul>
                 </nav>
             </div>
@@ -340,6 +364,65 @@
             </div>
         </section>
 
+        <!-- Sección Nosotros -->
+        <section id="nosotros" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Sobre Nosotros</h2>
+                <div class="max-w-3xl mx-auto text-lg text-gray-700 fade-in" style="animation-delay: 0.2s;">
+                    <p class="mb-4">
+                        Verificentro 967 es tu aliado para mantener tu vehículo al día con las normativas ambientales. Nos ubicamos en una zona estratégica para tu comodidad.
+                    </p>
+                    <p class="mb-6">
+                        Contamos con equipos de última generación y personal altamente capacitado para garantizar un servicio de verificación vehicular preciso y confiable.
+                    </p>
+                    <div class="video-container">
+                        <video controls autoplay muted loop>
+                            <source src="967Vis.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                    </div>
+                    <div class="card p-6 inline-block text-left mt-8">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">📍 Nuestra Dirección:</h3>
+                        <p class="text-gray-800">
+                            Blvrd Toluca Metepec 639, La Purisima, <br>
+                            52169 San Jorge Pueblo Nuevo, Méx.
+                        </p>
+                        <div class="map-container mt-6">
+                            <iframe src="https://maps.google.com/maps?q=Blvrd%20Toluca%20Metepec%20639,%20La%20Purisima,%2052169%20San%20Jorge%20Pueblo%20Nuevo,%20M%C3%A9x.&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-heading fade-in">Contáctanos</h2>
+                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
+                    ¿Tienes preguntas o necesitas agendar una cita en Verificentro 967? ¡Estamos aquí para ayudarte!
+                </p>
+                <div class="max-w-md mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-2xl font-semibold mb-6 text-green-700 flex items-center justify-center gap-2">
+                        💬 Envíanos un mensaje por WhatsApp
+                    </h3>
+                    <p class="mb-6 text-gray-700">Haz clic en el botón para iniciar una conversación directa con nosotros.</p>
+                    <a href="https://wa.me/14155238886?text=Hola!%20Me%20gustaría%20obtener%20más%20información%20sobre%20la%20verificación%20vehicular." target="_blank" class="whatsapp-btn">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.45 5.31 5.42-1.42c1.45.79 3.08 1.21 4.62 1.21 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm.04 1.57c4.53 0 8.22 3.69 8.22 8.22 0 4.53-3.69 8.22-8.22 8.22-.98 0-1.95-.22-2.85-.6l-.2-.11-2.04.53.54-1.99-.13-.21c-.49-.78-.75-1.68-.75-2.61 0-4.53 3.69-8.22 8.22-8.22zm-3.23 4.51c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22z" />
+                        </svg>
+                        Enviar mensaje de WhatsApp
+                    </a>
+                    <p class="mt-4 text-sm text-gray-600">
+                        Número temporal: +1 415 523 8886
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección PVVO -->
         <section id="pvvo" class="py-16 bg-gray-50">
             <div class="container mx-auto px-6">
                 <h2 class="section-heading fade-in">Programa de Verificación Vehicular Obligatoria (PVVO) - Segundo Semestre 2025</h2>
@@ -399,7 +482,7 @@
                         <p class="text-center text-gray-700 mb-8">Conoce los diferentes hologramas que puedes obtener:</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div class="hologram-card">
-                                <span class="hologram-icon">�💨</span>
+                                <span class="hologram-icon">🚗💨</span>
                                 <h4 class="text-xl font-bold text-gray-900 mb-2">Holograma 00</h4>
                                 <p class="text-sm text-gray-600">Vehículos nuevos de alto rendimiento y bajas emisiones. Doble cero.</p>
                             </div>
@@ -442,6 +525,7 @@
             </div>
         </section>
 
+        <!-- Sección Hoy No Circula -->
         <section id="hoy-no-circula" class="py-16 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Programa Hoy No Circula - Estado de México</h2>
@@ -478,6 +562,7 @@
             </div>
         </section>
 
+        <!-- Sección Trámites Vehiculares -->
         <section id="tramites-vehiculares" class="py-16 bg-gray-50">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Trámites Vehiculares en Línea 💻</h2>
@@ -498,6 +583,7 @@
             </div>
         </section>
 
+        <!-- Sección Generar Cita -->
         <section id="generar-cita" class="py-16 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Generar Cita de Verificación 🗓️</h2>
@@ -518,35 +604,12 @@
             </div>
         </section>
 
-        <section id="contacto" class="py-16 bg-gray-50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="section-heading fade-in">Contáctanos</h2>
-                <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
-                    ¿Tienes preguntas o necesitas agendar una cita en Verificentro 967? ¡Estamos aquí para ayudarte!
-                </p>
-                <div class="max-w-md mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
-                    <h3 class="text-2xl font-semibold mb-6 text-green-700 flex items-center justify-center gap-2">
-                        💬 Envíanos un mensaje por WhatsApp
-                    </h3>
-                    <p class="mb-6 text-gray-700">Haz clic en el botón para iniciar una conversación directa con nosotros.</p>
-                    <a href="https://wa.me/14155238886?text=Hola!%20Me%20gustaría%20obtener%20más%20información%20sobre%20la%20verificación%20vehicular." target="_blank" class="whatsapp-btn">
-                        <svg class="whatsapp-icon" viewBox="0 0 24 24">
-                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95l-1.45 5.31 5.42-1.42c1.45.79 3.08 1.21 4.62 1.21 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm.04 1.57c4.53 0 8.22 3.69 8.22 8.22 0 4.53-3.69 8.22-8.22 8.22-.98 0-1.95-.22-2.85-.6l-.2-.11-2.04.53.54-1.99-.13-.21c-.49-.78-.75-1.68-.75-2.61 0-4.53 3.69-8.22 8.22-8.22zm-3.23 4.51c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22zm3.23 0c-.13 0-.25.02-.37.04-.37.07-.63.2-.82.39-.19.19-.31.42-.39.63-.07.2-.11.42-.11.63s.04.42.11.63c.07.2.19.39.39.58.19.19.42.31.63.39.2.07.42.11.63.11.2 0 .42-.04.63-.11.2-.07.39-.19.58-.39.19-.19.31-.42.39-.63.07-.2.11-.42.11-.63s-.04-.42-.11-.63c-.07-.2-.19-.39-.39-.58-.19-.19-.42-.31-.63-.39-.2-.07-.42-.11-.63-.11zm.04 1.57c.07.2.11.39.11.58s-.04.39-.11.58c-.07.2-.19.35-.35.49-.16.13-.35.22-.54.22-.19 0-.39-.07-.54-.22-.16-.13-.25-.31-.31-.49-.07-.2-.11-.39-.11-.58s.04-.39.11-.58c.07-.2.19-.35.35-.49.16-.13.35-.22.54-.22.19 0 .39.07.54.22z" />
-                        </svg>
-                        Enviar mensaje de WhatsApp
-                    </a>
-                    <p class="mt-4 text-sm text-gray-600">
-                        Número temporal: +1 415 523 8886
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="gemini-assistant" class="py-16 bg-white">
+        <!-- Sección Asistente de IA -->
+        <section id="gemini-assistant" class="py-16 bg-gray-50">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Asistente de Verificación ✨</h2>
                 <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
-                    Pregúntale a nuestro asistente impulsado por IA sobre la verificación vehicular, el Hoy No Circula, o cualquier duda que tengas.
+                    Pregúntale a nuestro asistente impulsado por IA sobre la verificación vehicular, el Hoy No Circula, recuerda ser muy especifico en tu pregunta
                 </p>
                 <div class="max-w-2xl mx-auto card p-8 fade-in" style="animation-delay: 0.4s;">
                     <div id="chat-display" class="bg-gray-100 p-4 rounded-lg text-left mb-6 h-64 overflow-y-auto border border-gray-200">
@@ -568,33 +631,7 @@
             </div>
         </section>
 
-        <section id="nosotros" class="py-16 bg-gray-50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="section-heading fade-in">Sobre Nosotros</h2>
-                <div class="max-w-3xl mx-auto text-lg text-gray-700 fade-in" style="animation-delay: 0.2s;">
-                    <p class="mb-4">
-                        Verificentro 967 es tu aliado para mantener tu vehículo al día con las normativas ambientales. Nos ubicamos en una zona estratégica para tu comodidad.
-                    </p>
-                    <p class="mb-6">
-                        Contamos con equipos de última generación y personal altamente capacitado para garantizar un servicio de verificación vehicular preciso y confiable.
-                    </p>
-                    <div class="card p-6 inline-block text-left">
-                        <h3 class="text-xl font-semibold text-green-700 mb-2">📍 Nuestra Dirección:</h3>
-                        <p class="text-gray-800">
-                            Blvrd Toluca Metepec 639, La Purisima, <br>
-                            52169 San Jorge Pueblo Nuevo, Méx.
-                        </p>
-                        <div class="map-container mt-6">
-                            <iframe src="https://maps.google.com/maps?q=Blvrd%20Toluca%20Metepec%20639,%20La%20Purisima,%2052169%20San%20Jorge%20Pueblo%20Nuevo,%20M%C3%A9x.&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-gray-800 text-white p-6 text-center">
+        <footer>
             <div class="container mx-auto">
                 <p>&copy; 2025 Verificentro 967. Todos los derechos reservados.</p>
                 <p class="text-sm mt-2">
@@ -767,4 +804,3 @@
     </script>
 </body>
 </html>
-�
