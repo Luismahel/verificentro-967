@@ -9,10 +9,10 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-image: url('ecofond.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+            background-image: url('ecofond.png'); /* Nuevo fondo de la página */
+            background-attachment: fixed; /* Mantiene el fondo estático al hacer scroll */
+            background-size: cover; /* Cubre todo el área */
+            background-position: center; /* Centra la imagen de fondo */
             color: #333;
             line-height: 1.6;
         }
@@ -59,7 +59,7 @@
             }
 
         .card {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.85); /* Fondo de tarjeta semi-transparente */
             border-radius: 1.5rem;
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -316,6 +316,14 @@
                 object-fit: cover;
                 border-radius: 1rem;
             }
+        /* Nuevas reglas para la opacidad de las secciones */
+        section {
+            background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente para todas las secciones */
+        }
+        /* Asegurarse de que el footer también tenga algo de transparencia si se desea */
+        footer {
+            background-color: rgba(55, 65, 81, 0.9); /* Gris oscuro semi-transparente para el footer */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -365,7 +373,7 @@
         </section>
 
         <!-- Sección Nosotros -->
-        <section id="nosotros" class="py-16 bg-gray-50">
+        <section id="nosotros" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Sobre Nosotros</h2>
                 <div class="max-w-3xl mx-auto text-lg text-gray-700 fade-in" style="animation-delay: 0.2s;">
@@ -398,7 +406,7 @@
         </section>
 
         <!-- Sección Contacto -->
-        <section id="contacto" class="py-16 bg-white">
+        <section id="contacto" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Contáctanos</h2>
                 <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
@@ -423,7 +431,7 @@
         </section>
 
         <!-- Sección PVVO -->
-        <section id="pvvo" class="py-16 bg-gray-50">
+        <section id="pvvo" class="py-16">
             <div class="container mx-auto px-6">
                 <h2 class="section-heading fade-in">Programa de Verificación Vehicular Obligatoria (PVVO) - Segundo Semestre 2025</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -506,7 +514,7 @@
 
                     <div class="card p-8 col-span-full fade-in" style="animation-delay: 1.0s;">
                         <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center justify-center gap-2">
-                            💸 Condonación de Multas por Verificación Extemporánea
+                            � Condonación de Multas por Verificación Extemporánea
                         </h3>
                         <p class="mb-6 text-gray-700 text-center">
                             En el Estado de México, existe un programa de condonación de multas para facilitar la regularización.
@@ -526,7 +534,7 @@
         </section>
 
         <!-- Sección Hoy No Circula -->
-        <section id="hoy-no-circula" class="py-16 bg-white">
+        <section id="hoy-no-circula" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Programa Hoy No Circula - Estado de México</h2>
                 <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
@@ -563,7 +571,7 @@
         </section>
 
         <!-- Sección Trámites Vehiculares -->
-        <section id="tramites-vehiculares" class="py-16 bg-gray-50">
+        <section id="tramites-vehiculares" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Trámites Vehiculares en Línea 💻</h2>
                 <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
@@ -584,7 +592,7 @@
         </section>
 
         <!-- Sección Generar Cita -->
-        <section id="generar-cita" class="py-16 bg-white">
+        <section id="generar-cita" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Generar Cita de Verificación 🗓️</h2>
                 <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
@@ -605,7 +613,7 @@
         </section>
 
         <!-- Sección Asistente de IA -->
-        <section id="gemini-assistant" class="py-16 bg-gray-50">
+        <section id="gemini-assistant" class="py-16">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="section-heading fade-in">Asistente de Verificación ✨</h2>
                 <p class="text-lg text-gray-700 mb-8 fade-in" style="animation-delay: 0.2s;">
@@ -804,3 +812,4 @@
     </script>
 </body>
 </html>
+�
