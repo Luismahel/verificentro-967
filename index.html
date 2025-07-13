@@ -15,7 +15,8 @@
             background-position: center; /* Centra la imagen de fondo */
             color: #333;
             line-height: 1.6;
-            padding-top: 128px; /* Espacio ajustado para el encabezado fijo y la barra de progreso */
+            /* Ajuste del padding-top para dejar espacio al header cuando está visible */
+            padding-top: 132px; /* Altura aproximada del header (h-20 logo + padding + progress bar) */
         }
 
         .header-bg {
@@ -24,6 +25,11 @@
             background-size: cover; /* Asegura que la imagen cubra todo el encabezado */
             background-position: center; /* Centra la imagen de fondo */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+            transition: transform 0.3s ease-out; /* Transición para el efecto de deslizamiento */
+        }
+
+        .header-hidden {
+            transform: translateY(-100%); /* Mueve el encabezado completamente hacia arriba */
         }
 
         .btn-primary {
@@ -297,10 +303,10 @@
             height: 4px;
             background-color: rgba(0, 0, 0, 0.1);
             width: 100%;
-            position: absolute; /* Cambiado a absolute para que se posicione dentro del header */
-            bottom: 0; /* Colocado en la parte inferior del header */
+            position: absolute; /* Colocado dentro del header */
+            bottom: 0; /* En la parte inferior del header */
             left: 0;
-            z-index: 50; /* Asegura que esté por encima de otros elementos del header si los hubiera */
+            z-index: 50;
         }
 
         #progress-bar {
@@ -314,7 +320,7 @@
 <body class="antialiased">
 
     <div id="main-content">
-        <header class="header-bg text-gray-900 p-4 md:p-6 shadow-lg fixed top-0 w-full z-50 rounded-b-xl">
+        <header class="header-bg text-white p-4 md:p-6 shadow-lg fixed top-0 w-full z-50 rounded-b-xl">
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-4 mb-4 md:mb-0">
                     <img src="logo2.jpg" alt="Logo Verificación" class="h-20 logo-animate">
@@ -332,7 +338,7 @@
                         <li><a href="#gemini-assistant" class="hover:text-green-200 transition duration-300">Asistente AI</a></li>
                     </ul>
                     <button id="search-button" class="ml-4 p-2 rounded-full hover:bg-green-700 transition duration-300">
-                        <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </button>
@@ -640,8 +646,15 @@
     </div>
     <script>
         let chatHistory = [];
+        let lastScrollTop = 0;
+        let header = null;
+        let headerHeight = 0;
 
         document.addEventListener('DOMContentLoaded', function () {
+            header = document.querySelector('header');
+            headerHeight = header.offsetHeight; // Obtener la altura real del encabezado
+            document.body.style.paddingTop = headerHeight + 'px'; // Ajustar el padding del body
+
             const logoImg = document.querySelector('.logo-animate');
             const realLogoUrl = 'logo2.jpg'; // Ruta de la imagen del logo
 
@@ -720,17 +733,27 @@
 
             displayCurrentVerification();
 
-            // Función para actualizar la barra de progreso
-            function updateProgressBar() {
+            // Función para actualizar la barra de progreso y el comportamiento del header
+            function updateScrollBehavior() {
                 const progressBar = document.getElementById('progress-bar');
                 const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = document.documentElement.scrollTop;
+                const scrolled = window.scrollY || document.documentElement.scrollTop;
                 const percentage = (scrolled / scrollHeight) * 100;
                 progressBar.style.width = percentage + '%';
+
+                // Comportamiento del header deslizante
+                if (scrolled > lastScrollTop && scrolled > headerHeight) {
+                    // Desplazándose hacia abajo y ya pasó la altura del header
+                    header.classList.add('header-hidden');
+                } else if (scrolled < lastScrollTop || scrolled <= headerHeight) {
+                    // Desplazándose hacia arriba o en la parte superior de la página
+                    header.classList.remove('header-hidden');
+                }
+                lastScrollTop = scrolled;
             }
 
-            // Escuchar el evento de scroll para actualizar la barra
-            window.addEventListener('scroll', updateProgressBar);
+            // Escuchar el evento de scroll para actualizar la barra y el header
+            window.addEventListener('scroll', updateScrollBehavior);
 
             // Manejar el clic del botón de búsqueda
             document.getElementById('search-button').addEventListener('click', function () {
