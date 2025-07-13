@@ -16,7 +16,7 @@
             color: #333;
             line-height: 1.6;
             /* Ajuste del padding-top para dejar espacio al header cuando está visible */
-            padding-top: 132px; /* Altura aproximada del header (h-20 logo + padding + progress bar) */
+            padding-top: 60px; /* Altura aproximada del header (h-10 logo + p-2 padding + 4px progress bar) */
         }
 
         .header-bg {
@@ -225,7 +225,7 @@
         .map-container {
             position: relative;
             overflow: hidden;
-            padding-top: 56.25%;
+            padding-top: 56.25%; /* Mantiene el aspect ratio 16:9 */
             border-radius: 1.5rem;
             margin-top: 2rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -300,7 +300,7 @@
         }
         /* Estilos para la barra de progreso */
         #progress-bar-container {
-            height: 2px; /* Reducido a la mitad */
+            height: 4px; /* Duplicado de 2px a 4px */
             background-color: rgba(0, 0, 0, 0.1);
             width: 100%;
             position: absolute; /* Colocado dentro del header */
@@ -320,14 +320,14 @@
 <body class="antialiased">
 
     <div id="main-content">
-        <header class="header-bg text-white p-4 md:p-6 shadow-lg fixed top-0 w-full z-50 rounded-b-xl">
+        <header class="header-bg text-white p-2 md:p-3 shadow-lg fixed top-0 w-full z-50 rounded-b-xl">
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <img src="logo2.jpg" alt="Logo Verificación" class="h-20 logo-animate">
-                    <span class="text-3xl font-bold">Verificentro 967</span>
+                <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                    <img src="logo2.jpg" alt="Logo Verificación" class="h-10 logo-animate">
+                    <span class="text-2xl font-bold">Verificentro 967</span>
                 </div>
-                <nav class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg items-center">
-                    <ul class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg">
+                <nav class="flex flex-wrap justify-center md:space-x-4 space-x-2 text-base items-center">
+                    <ul class="flex flex-wrap justify-center md:space-x-4 space-x-2 text-base">
                         <li><a href="#inicio" class="hover:text-green-200 transition duration-300">Inicio</a></li>
                         <li><a href="#nosotros" class="hover:text-green-200 transition duration-300">Nosotros</a></li>
                         <li><a href="#pvvo" class="hover:text-green-200 transition duration-300">PVVO 2025</a></li>
@@ -337,8 +337,8 @@
                         <li><a href="#generar-cita" class="hover:text-green-200 transition duration-300">Generar Cita</a></li>
                         <li><a href="#gemini-assistant" class="hover:text-green-200 transition duration-300">Asistente AI</a></li>
                     </ul>
-                    <button id="search-button" class="ml-4 p-2 rounded-full hover:bg-green-700 transition duration-300">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <button id="search-button" class="ml-2 p-1 rounded-full hover:bg-green-700 transition duration-300">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </button>
@@ -556,7 +556,7 @@
                         Ir al Sitio de Trámites Vehiculares
                     </a>
                     <p class="mt-6 text-md text-gray-600">
-                        Si necesitas ayuda o tienes preguntas sobre cómo realizar estos trámites, no dudes en <a href="#gemini-assistant" class="text-green-700 font-semibold hover:underline">preguntar a nuestro asistente virtual</a>.
+                        Si necesitas asistencia para agendar tu cita o tienes alguna dificultad, no dudes en contactarnos directamente por WhatsApp o usar nuestro asistente virtual.
                     </p>
                 </div>
             </div>
@@ -652,7 +652,8 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             header = document.querySelector('header');
-            headerHeight = header.offsetHeight; // Obtener la altura real del encabezado
+            // Recalcular la altura del encabezado después de los cambios de estilo
+            headerHeight = header.offsetHeight;
             document.body.style.paddingTop = headerHeight + 'px'; // Ajustar el padding del body
 
             const logoImg = document.querySelector('.logo-animate');
