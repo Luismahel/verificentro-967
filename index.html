@@ -9,16 +9,21 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-image: url('ecofond.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+            background-image: url('ecofond.png'); /* Fondo de la página */
+            background-attachment: fixed; /* Mantiene el fondo estático al hacer scroll */
+            background-size: cover; /* Cubre todo el área */
+            background-position: center; /* Centra la imagen de fondo */
             color: #333;
             line-height: 1.6;
+            padding-top: 128px; /* Espacio ajustado para el encabezado fijo y la barra de progreso */
         }
 
         .header-bg {
-            background: linear-gradient(to right, #28a745, #1e8838);
+            /* Fondo con gradiente semi-transparente sobre la imagen para bajar la opacidad */
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('forest.png');
+            background-size: cover; /* Asegura que la imagen cubra todo el encabezado */
+            background-position: center; /* Centra la imagen de fondo */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
         }
 
         .btn-primary {
@@ -229,43 +234,6 @@
                 border: 0;
             }
 
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background-color: #0A190A;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            flex-direction: column;
-        }
-
-        #splash-message {
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            animation: slideDown 1.5s ease-out forwards;
-            opacity: 0;
-            padding: 0 1rem;
-        }
-
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
         .color-circle {
             display: inline-block;
             width: 20px;
@@ -324,22 +292,35 @@
         footer {
             background-color: rgba(55, 65, 81, 0.72);
         }
+        /* Estilos para la barra de progreso */
+        #progress-bar-container {
+            height: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100%;
+            position: absolute; /* Cambiado a absolute para que se posicione dentro del header */
+            bottom: 0; /* Colocado en la parte inferior del header */
+            left: 0;
+            z-index: 50; /* Asegura que esté por encima de otros elementos del header si los hubiera */
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #28a745; /* Color verde */
+            transition: width 0.1s linear;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <div id="splash-screen">
-        <h1 id="splash-message">TODO LO QUE NECESITAS PARA TU VERIFICACION ESTA AQUI</h1>
-    </div>
-
-    <div id="main-content" style="display: none;">
-        <header class="header-bg text-white p-6 shadow-lg">
+    <div id="main-content">
+        <header class="header-bg text-gray-900 p-4 md:p-6 shadow-lg fixed top-0 w-full z-50 rounded-b-xl">
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <img src="https://placehold.co/150x50/000000/FFFFFF?text=Tu+Logo" alt="Logo Verificación" class="h-12 logo-animate">
+                    <img src="logo2.jpg" alt="Logo Verificación" class="h-20 logo-animate">
                     <span class="text-3xl font-bold">Verificentro 967</span>
                 </div>
-                <nav>
+                <nav class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg items-center">
                     <ul class="flex flex-wrap justify-center md:space-x-8 space-x-4 text-lg">
                         <li><a href="#inicio" class="hover:text-green-200 transition duration-300">Inicio</a></li>
                         <li><a href="#nosotros" class="hover:text-green-200 transition duration-300">Nosotros</a></li>
@@ -350,7 +331,16 @@
                         <li><a href="#generar-cita" class="hover:text-green-200 transition duration-300">Generar Cita</a></li>
                         <li><a href="#gemini-assistant" class="hover:text-green-200 transition duration-300">Asistente AI</a></li>
                     </ul>
+                    <button id="search-button" class="ml-4 p-2 rounded-full hover:bg-green-700 transition duration-300">
+                        <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
                 </nav>
+            </div>
+            <!-- Barra de progreso de lectura dentro del header -->
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
             </div>
         </header>
 
@@ -653,7 +643,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const logoImg = document.querySelector('.logo-animate');
-            const realLogoUrl = 'https://placehold.co/150x50/000000/FFFFFF?text=Tu+Logo';
+            const realLogoUrl = 'logo2.jpg'; // Ruta de la imagen del logo
 
             const img = new Image();
             img.onload = function () {
@@ -661,7 +651,7 @@
             };
             img.onerror = function () {
                 console.warn('No se pudo cargar la imagen del logo real, usando placeholder.');
-                logoImg.src = 'https://placehold.co/150x50/000000/FFFFFF?text=Verificacion';
+                logoImg.src = 'https://placehold.co/150x50/000000/FFFFFF?text=Verificacion'; // Fallback
             };
             img.src = realLogoUrl;
 
@@ -730,13 +720,22 @@
 
             displayCurrentVerification();
 
-            const splashScreen = document.getElementById('splash-screen');
-            const mainContent = document.getElementById('main-content');
+            // Función para actualizar la barra de progreso
+            function updateProgressBar() {
+                const progressBar = document.getElementById('progress-bar');
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = document.documentElement.scrollTop;
+                const percentage = (scrolled / scrollHeight) * 100;
+                progressBar.style.width = percentage + '%';
+            }
 
-            setTimeout(() => {
-                splashScreen.style.display = 'none';
-                mainContent.style.display = 'block';
-            }, 2000);
+            // Escuchar el evento de scroll para actualizar la barra
+            window.addEventListener('scroll', updateProgressBar);
+
+            // Manejar el clic del botón de búsqueda
+            document.getElementById('search-button').addEventListener('click', function () {
+                alert('¡Funcionalidad de búsqueda en desarrollo!');
+            });
         });
 
         async function askGemini() {
